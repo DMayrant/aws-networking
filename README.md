@@ -5,7 +5,7 @@ Overlapping subnets will cause tight coupling, resulting in the loss of scalabil
 
 an IP address is distinct numerical label each device gets within a network to exchange data packets. There are 4.3 billion IPv4 address aviable as of today and each IPv4 address can be classified as either public and private. The RFC 1918 is a Internet Engineering Task Force (IETF) document that classifies 3 blocks of private IPv4 IP address. All private resources must be kept far away from the public internet. 
 
-private IPv4 address range 
+private IPv4 address ranges 
 
 Class A 10.0.0.0 - 10.255.255.255
 
