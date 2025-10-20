@@ -1,6 +1,6 @@
 variable "private_subnet_count" {
   type    = number
-  default = 4
+  default = 6
 
 }
 
@@ -8,4 +8,36 @@ variable "public_subnet_count" {
   type    = number
   default = 6
 
+}
+
+variable "availability_zones" {
+  type    = list(string)
+  default = ["us-east-1a", "us-east-1b", "us-east-1c", "us-east-1d", "us-east-1e", "us-east-1f"]
+
+}
+
+variable "public_subnet_cidrs" {
+  description = "CIDR blocks for public subnets"
+  type        = list(string)
+  default = [
+    "10.92.1.0/24",
+    "10.92.2.0/24",
+    "10.92.3.0/24",
+    "10.92.4.0/24",
+    "10.92.5.0/24",
+    "10.92.6.0/24"
+  ]
+}
+
+variable "private_subnet_cidrs" {
+  description = "CIDR blocks for private subnets"
+  type        = list(string)
+  default = [
+    "10.92.200.0/24",
+    "10.92.201.0/24",
+    "10.92.202.0/24",
+    "10.92.203.0/24",
+    "10.92.204.0/24",
+    "10.92.205.0/24"
+  ]
 }
