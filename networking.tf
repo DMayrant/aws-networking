@@ -17,15 +17,17 @@ resource "aws_vpc" "main_vpc" {
 }
 
 resource "aws_subnet" "public_subnet" {
-  count      = var.public_subnet_count
+  count      = length(var.public_subnet_cidrs)
   vpc_id     = aws_vpc.main_vpc.id
-  cidr_block = "10.127.${count.index + 1}.0/24" #for multiple subnets
+  cidr_block = var.public_subnet_cidrs[count.index]
+  availability_zone = var.availability_zones[count.index]
 }
 
 resource "aws_subnet" "private_subnet" {
-  count      = var.private_subnet_count
+  count      = length(var.private_subnet_cidrs)
   vpc_id     = aws_vpc.main_vpc.id
-  cidr_block = "10.127.${count.index + 200}.0/24" #for multiple subnets"
+  cidr_block = var.private_subnet_cidrs[count.index]
+  availability_zone = var.availability_zones[count.index]
 
   tags = merge(local.common_tags, {
     Name = "private_Subnet"
